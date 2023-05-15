@@ -1,0 +1,174 @@
+.carousel{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-overlay-content{
+    text-align: start;
+    max-width: 50%;
+}
+.carousel-overlay-content p{
+    
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel-overlay-content h2{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.carousel-overlay-content p{
+    font-weight: 300;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.carousel-overlay-content .content-link {
+    font-size: 12px;
+    font-weight: 400;
+}
+.carousel-overlay-preview {
+    display:flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+.carousel-overlay-preview-item img{
+    object-fit: fill;
+    height: 48px;
+    width: 70px;
+}
+
+.carousel-overlay-preview-item:hover{
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.carousel-overlay-preview-item.active{
+    border: 1px solid var(--theme-link-color);
+}
+
+.carousel-content-item{
+    background-color: var(--theme-page-background-color--secondary);
+    border: 1px solid var(--theme-page-background-color--secondary);
+    box-sizing: border-box;
+    width: 100%;
+    display:flex;
+}
+.carousel-content {
+    display: flex;
+    max-width: 670px;
+    transition: transform 0.5s ease;
+}
+
+.carousel-content-item img{
+    /* height: 360px; */
+    text-align: center;
+    object-fit: contain;
+    width: 670px;
+}
+.carousel-overlay{
+    position: absolute;
+    inset: 0;
+    display:none;
+}
+
+.carousel-overlay-controllers{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.carousel-overlay-info{
+    display: flex;
+    color:white;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(30,12,27,.7);
+    padding: 8px;
+}
+
+.carousel-overlay-controller {
+    width: 12px;
+    padding: 10px;
+    display: flex;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    cursor: pointer;
+    user-select: none;
+}
+.carousel-overlay-controller:last-child{
+    rotate: 180deg;
+}
+
+.carousel-overlay-controller-previous{
+    transform: translateX(0px);
+}
+
+.carousel-overlay-controller-next{
+    transform: translateX(-670px);
+}
+
+.carousel-overlay--hover{
+    display: flex;
+    flex-direction: column;
+    animation-name: fade;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+.carousel-overlay--hover>.carousel-overlay-controllers>.carousel-overlay-controller{
+    animation: forwards .4s ease 0s 1 slideX;
+}
+
+.carousel-overlay--hover>.carousel-overlay-info{
+    animation-name: slideY;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+/* .carousel-content.slide {
+    animation-name: moveSlide;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+} */
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideX {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes slideY {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
